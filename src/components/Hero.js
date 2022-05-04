@@ -1,9 +1,6 @@
 import Card from "react-bootstrap/Card";
-import { useCallback } from "react";
+import { capitalize } from "../constants/Common";
 function Hero({ character, name, attributes, description, image }) {
-	const capitalize = useCallback((string) => {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}, []);
 	return (
 		<Card>
 			<Card.Img variant="top" src={image} alt="token image" />
@@ -12,11 +9,11 @@ function Hero({ character, name, attributes, description, image }) {
 					return (
 						<Card.Text key={index}>
 							{capitalize(
-								attribute.trait_type.toString()
+								attribute?.trait_type.toString()
 							) +
 								" : " +
 								capitalize(
-									attribute.value.toString()
+									attribute?.value.toString()
 								)}
 						</Card.Text>
 					);
