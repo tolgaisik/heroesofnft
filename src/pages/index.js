@@ -34,6 +34,7 @@ export default function IndexPage() {
 		}
 	}, [heroes]);
 	const filteredHeroes = useMemo(() => {
+		console.log(selectedAttr, " : ", deferedFilter, " : ");
 		return heroes.filter((hero) => {
 			if (deferedFilter === "") {
 				return true;
@@ -59,7 +60,7 @@ export default function IndexPage() {
 		});
 	}, [heroes, deferedFilter, selectedAttr]);
 	function onChange(event) {
-		setFilter(event.target.value);
+		setSelectedAttr(event.target.value);
 	}
 	function filterHandler(event) {
 		event.preventDefault();
